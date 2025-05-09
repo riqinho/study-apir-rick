@@ -21,6 +21,7 @@ import com.github.acnaweb.study_apir.dto.PedidoRequestUpdate;
 import com.github.acnaweb.study_apir.dto.PedidoResponse;
 import com.github.acnaweb.study_apir.dto.ProdutoRequestCreate;
 import com.github.acnaweb.study_apir.dto.ProdutoRequestUpdate;
+import com.github.acnaweb.study_apir.model.Pedido;
 import com.github.acnaweb.study_apir.service.PedidoService;
 
 @RestController
@@ -33,12 +34,8 @@ public class ControllerPedido {
     @PostMapping
     public ResponseEntity<PedidoResponse> create(
                                 @RequestBody PedidoRequestCreate dto) {                                    
+        Pedido pedido = pedidoService.create(dto);
         return ResponseEntity.noContent().build();
-        // return ResponseEntity.status(201).body(
-        //     new PedidoResponse().toDto(
-        //         pedidoService.createPedido(dto)
-        //     )
-        // );
     }
 
     // @DeleteMapping("/{id}")
