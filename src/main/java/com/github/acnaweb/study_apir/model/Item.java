@@ -16,7 +16,7 @@ import jakarta.persistence.ManyToOne;
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id;
 
     @ManyToOne
     @Cascade(value = CascadeType.ALL)
@@ -32,11 +32,11 @@ public class Item {
 
     private BigDecimal quantidade;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

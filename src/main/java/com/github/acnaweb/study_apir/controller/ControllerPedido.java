@@ -33,9 +33,10 @@ public class ControllerPedido {
 
     @PostMapping
     public ResponseEntity<PedidoResponse> create(
-                                @RequestBody PedidoRequestCreate dto) {                                    
-        Pedido pedido = pedidoService.create(dto);
-        return ResponseEntity.noContent().build();
+                                @RequestBody PedidoRequestCreate dto) { 
+        return ResponseEntity.status(201).body(
+            new PedidoResponse().toDto(pedidoService.create(dto))
+        );
     }
 
     // @DeleteMapping("/{id}")
