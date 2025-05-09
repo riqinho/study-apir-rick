@@ -1,6 +1,7 @@
 package com.github.acnaweb.study_apir.service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,22 +62,22 @@ public class PedidoService {
     //         .map(p -> pedidoRepository.save(dto.toModel(p)));
     // }
 
-    // public Optional<Pedido> gerPedidoById(Long id) {        
-    //     return pedidoRepository.findById(id);
-    // }
+    public Optional<Pedido> gerPedidoById(Long id) {        
+        return pedidoRepository.findById(id);
+    }
 
-    // public List<Pedido> getAll() {
-    //     return pedidoRepository.findAll();
-    // }
+    public List<Pedido> getAll() {
+        return pedidoRepository.findAll();
+    }
 
-    // public boolean deletePedido(Long id) { 
-    //     if (pedidoRepository.existsById(id)) {
-    //         pedidoRepository.deleteById(id);
-    //         return true;
-    //     }
+    public boolean deletePedido(Long id) { 
+        if (pedidoRepository.existsById(id)) {
+            pedidoRepository.deleteById(id);
+            return true;
+        }
 
-    //     return false;     
-    // }
+        return false;     
+    }
 
 
 

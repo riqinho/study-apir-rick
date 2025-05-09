@@ -62,21 +62,19 @@ public class ControllerPedido {
 
     @GetMapping("/{id}")
     public ResponseEntity<PedidoResponse> findById(@PathVariable Long id) {
-        return ResponseEntity.noContent().build();
-        // return pedidoService.gerPedidoById(id)
-        //     .map(p-> new PedidoResponse().toDto(p))
-        //     .map(ResponseEntity::ok)
-        //     .orElse(ResponseEntity.notFound().build());     
+        return pedidoService.gerPedidoById(id)
+            .map(p-> new PedidoResponse().toDto(p))
+            .map(ResponseEntity::ok)
+            .orElse(ResponseEntity.notFound().build());     
     }
 
     @GetMapping
     public ResponseEntity<List<PedidoResponse>> findAll() {
-        return ResponseEntity.noContent().build();
-        // List<PedidoResponse> response = 
-        //     pedidoService.getAll().stream()
-        //     .map(p-> new PedidoResponse().toDto(p))
-        //     .collect(Collectors.toList()); 
-        // return ResponseEntity.ok(response);
+        List<PedidoResponse> response = 
+            pedidoService.getAll().stream()
+            .map(p-> new PedidoResponse().toDto(p))
+            .collect(Collectors.toList()); 
+        return ResponseEntity.ok(response);
     }
 
 
